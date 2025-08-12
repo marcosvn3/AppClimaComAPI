@@ -10,7 +10,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ClimaApp {
-    private static final String API_CHAVE = "SUA_CHAVI_AQUI";
+    private static final String API_CHAVE = "SUA_CHAVE_AQUI";
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s&units=metric&lang=pt_br";
 
     public static void main(String[] args) {
@@ -52,7 +52,7 @@ public class ClimaApp {
         System.out.println("\n========Previsao do tempo==================");
         System.out.println("Cidade: " + cidade);
         System.out.println("Temperatura: " + temp + "°C");
-        System.out.println("Umidade: "+ umidade+"%");
-        System.out.println("Condicões: "+ descricao);
+        System.out.println("Umidade: " + umidade + "%");
+        System.out.println("Condicões: " + descricao);
     }
 }
