@@ -8,14 +8,40 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Scanner;
 
 public class ClimaApp {
     private static final String API_CHAVE = "SUA_CHAVE_AQUI";
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s&units=metric&lang=pt_br";
 
     public static void main(String[] args) {
-        String cidade = "Aracaju";
-        buscarCidade(cidade);
+        Scanner sc = new Scanner(System.in);
+        Boolean ativo = true;
+
+        System.out.println("=====BEM VINDO AO APLICATIVO LIVETEMP=====");
+
+        do{
+            try{
+                System.out.println("1-Verificar tempo em uma cidade: ");
+                System.out.println("0-Sair do aplicativo: ");
+                String cidade = sc.nextLine();
+
+                if(cidade.equals("1")) {
+                    System.out.println("Digite o nome da cidade:");
+                    cidade = sc.nextLine();
+                    buscarCidade(cidade);
+                }else if(cidade.equals("0")) {
+                    ativo = false;
+                }else {
+                	System.out.println("\n\nSelecione um numero valido!!\n\n");
+                }
+            }catch (Exception e){
+                System.err.println("Escreva o nome da cidade correto!");
+            }
+
+        }while (ativo);
+        System.out.println("APLICATIVO FINALIZADO!");
+        sc.close();
     }
 
     public static void buscarCidade(String cidade) {
@@ -53,6 +79,6 @@ public class ClimaApp {
         System.out.println("Cidade: " + cidade);
         System.out.println("Temperatura: " + temp + "°C");
         System.out.println("Umidade: " + umidade + "%");
-        System.out.println("Condicões: " + descricao);
+        System.out.println("Condicões: " + descricao+"\n\n");
     }
 }
