@@ -32,14 +32,16 @@ public class ClimaApp {
                     buscarCidade(cidade);
                 }else if(cidade.equals("0")) {
                     ativo = false;
+                }else {
+                	System.out.println("\n\nSelecione um numero valido!!\n\n");
                 }
             }catch (Exception e){
-                System.out.println(e.getMessage());
                 System.err.println("Escreva o nome da cidade correto!");
             }
 
         }while (ativo);
         System.out.println("APLICATIVO FINALIZADO!");
+        sc.close();
     }
 
     public static void buscarCidade(String cidade) {
