@@ -22,8 +22,8 @@ public class ClimaApp {
 
         do{
             try{
-                System.out.println("1-Verificar tempo em uma cidade:");
-                System.out.println("0-Sair do APLICATIVO:");
+                System.out.println("1-Verificar tempo em uma cidade: ");
+                System.out.println("0-Sair do aplicativo: ");
                 String cidade = sc.nextLine();
 
                 if(cidade.equals("1")) {
